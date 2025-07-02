@@ -1,0 +1,11 @@
+sudo apt install docker-io
+docker --version
+sudo docker run -d -p 11436:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always
+ ghcr.io/open-webui/open-webui:main
+sudo curl -fsSL https://ollama.com/install.sh | sh 
+sudo docker run -d --name ollama -p 11435:11434 ollama/ollama
+sudo docker ps -a
+sudo docker exec -it ollama bash
+ollama pull qwen2.5:0.5b
+sudo ollama list
+sudo curl http://192.168.184.31:11435/api/tags
